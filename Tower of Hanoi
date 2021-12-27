@@ -1,0 +1,13 @@
+#include<stdio.h>
+int TOH(int n, int A, int B, int C){
+    if(n>0){ //n is the number of disk
+        TOH(n-1,A,C,B);
+        printf("(%d,%d)",A,C);
+        TOH(n-1,B,A,C);
+    }
+}
+int main(){
+    int a=1,b=2,c=3;
+    int n = 3;
+    TOH(n,a,b,c);
+}
