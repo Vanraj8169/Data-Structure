@@ -1,0 +1,41 @@
+class Solution{
+    static int minJumps(int[] a){
+        // your code here
+        
+        /* 
+                LOGIC
+            
+            inititalise position,jump and destination at the starting index
+            Then increment position with its index and intialise it with 
+            destination value.
+            
+            Then check for every element, whether we are getting optimal 
+            solution that is maximum solution. 
+            
+            suppose starting element is 2
+            so pos = 2
+            and des = 2
+            So from 0th position till 1st position, for every element
+            destination is calculated. And if previous destination is maximum
+            that is assigned to it. 
+            
+            And when pointer reaches to 1st position. Des is updated.and 
+            jump is also incremented.
+        */
+        
+         if(a.length ==1) return 0;
+        if(a[0] == 0) return -1;
+        int jump=0;
+        int pos =0;
+        int des =0;
+        for(int i=0; i<a.length-1; i++){
+            des = Math.max(des,a[i]+i);  //calculating des for every element
+            if(pos==i){  // updating pos after every pos th element incremented
+                pos = des;  //assigning value to des and incrementing jump
+                jump++;
+            }
+        }
+   if(des < a.length-1) return -1;  //If des is not reachable then return -1
+        return jump;
+    }
+}
