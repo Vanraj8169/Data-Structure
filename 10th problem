@@ -1,0 +1,30 @@
+class Solution {
+    public int findDuplicate(int[] nums) {
+        for(int i=0;i<nums.length;i++){
+
+
+            /* 
+                LOGIC
+            1. Go to current element number index  
+                e.g 3 4 5 2 . So first element is 3 so go to 3rd index
+            2. Mark that index -1
+            3. Now repeat this for all 
+            4. See if that element is negative. If it is then return it
+
+            */
+            int index = Math.abs(nums[i]);  //incase element is negative. Therefore to make it positive abs is used. 
+
+            if(nums[index] < 0){   //if an element is negative means it had been repeated so that's an answer
+                return index;
+            }
+            
+            nums[index] = -nums[index];  // if not then mark it negative
+
+            if(nums.length <=0 ){
+                return 0;
+            }
+        }
+        return -1;
+    }
+}
+
