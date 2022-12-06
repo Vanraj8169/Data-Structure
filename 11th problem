@@ -1,0 +1,32 @@
+class Solution
+{
+    //Function to merge the arrays.
+    public static void merge(long arr1[], long arr2[], int n, int m) 
+    {
+        /* 
+            LOGIC
+        1. Intialise two pointer i and j
+        2. assign i to first array last index and j to second array first index
+        3. compare arr1[i]  with arr2[j] 
+        4. If arr1[i] > arr2[j] then swap
+        5. Then sort arr1 and arr2
+        */
+        
+        
+        int i = n-1; 
+        int j = 0;
+        while ( i>=0 && j<m ){
+            if(arr1[i] > arr2[j]){
+                long temp = arr1[i];
+                arr1[i] = arr2[j];
+                arr2[j] =  temp;
+            }
+            i--; 
+            j++;
+        }
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+       
+    }
+    
+}
