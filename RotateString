@@ -1,0 +1,17 @@
+class Solution {
+    public boolean rotateString(String s, String goal) {
+
+        // Logic 
+        // If a string is concatenated with ourself then it contains all types of rotations in it.
+        int l = s.length();
+        int r = goal.length();
+        if(l != r){
+            return false;
+        }
+        String temp = s + s;
+        if(!temp.contains(goal)){
+            return false;
+        }
+        return true;
+    }
+}
